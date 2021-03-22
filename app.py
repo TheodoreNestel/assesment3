@@ -32,6 +32,10 @@ def root():
 ##############################################################################
 # Playlist routes
 
+#dont forget to make a database with the name playlist-app 
+#if your sql alchemy version is higher than SQLAlchemy==1.3.20 
+#the code will not work 
+
 
 @app.route("/playlists")
 def show_all_playlists():
