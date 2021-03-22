@@ -2,6 +2,22 @@
 
 {% block content %}
 
-<h1>Add a form that when submitted creates a new song!</h1>
+<h1>Add your favorite song by your favorite artist here </h1>
+<form method="POST"> <!-- first we add our regular form-->
+
+  {{ form.hidden_tag() }} <!--this is our csrf token its hidden ;)-->
+
+  {% for field in form 
+    if field.widget.input_type != 'hidden' %} <!-- then a loop to grab all the stuff in our WTForm we made. -->
+  <p>
+    {{ field.label }} 
+    {{ field(class_="form-control") }}
+
+  </p>
+  {% endfor %}<!--the end of all the loops including the error loop at the bottom -->
+
+  <button class="btn btn-success" type="submit">Add YOUR SONG  </button> <!-- cant submit without a button -->
+
+</form>
 
 {% endblock %}

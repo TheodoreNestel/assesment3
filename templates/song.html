@@ -3,12 +3,22 @@
 {% block content %}
 
 <div class="jumbotron">
-  <h1>{{ song.title }}!</h1>
-  <p class="lead">&ndash; {{ song.artist }}</p>
+  <h1>{{song.title}}, {{song.artist}}</h1>
+  
 </div>
 
-<ul>
-  DISPLAY ALL OF THE PLAYLISTS THAT THIS SONG IS A PART OF
-</ul>
+
+  <div class="">
+  Playlist Containing {{song.title}}
+  
+  {% for playlist in song.playlist %}
+
+  <ul><p class="lead">&ndash;>{{playlist.name}} </p></ul>
+
+  {% endfor %}
+  
+
+</div>
+
 
 {% endblock %}

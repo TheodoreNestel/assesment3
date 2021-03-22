@@ -2,8 +2,23 @@
 
 {% block content %}
 
-<h1>Add a song to {{ playlist.name }}</h1>
+<form method="POST">
+    {{form.hidden_tag()}} <!--THIS NEEDS TO BE INCLUDED FOR FORM VALIDATION-->
+    <!--this is how we pass in the token of authenticity-->
 
-<h1>Add a form that when submitted adds a song to this playlist!</h1>
+    <!--We can interate over field to print our two inputs and we can also use field.label to print out the label we set up earlier-->
+
+    {% for field in form  if field.widget.input_type != 'hidden' %} <!-- the if here makes sure the token stays hidden-->
+    <p>
+
+    {{field.label}} 
+    {{field}}
+
+    </p>
+    {% endfor %}
+
+    <button>Submit</button>
+
+    </form>
 
 {% endblock %}

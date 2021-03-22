@@ -4,14 +4,23 @@
 
 <div class="jumbotron">
   <h1>{{ playlist.name }}!</h1>
-  {% if playlist.description %}
-  <p class="lead">{{ playlist.description }}</p>
+  {% if playlist.desc %}
+  <p class="lead">{{ playlist.desc }}</p>
   {% endif %}
 </div>
 
 
-<div class="text-danger">
-  SHOW ALL OF THE SONGS IN THIS PLAYLIST HERE
+<div class="">
+  <h2>Songs Currently in the playlist!</h2>
+  <span></span>
+
+  {% for songs in playlist.songs %}
+
+  <p>{{songs.title}} , {{songs.artist}}</p>
+
+  {% endfor %}
+  
+
 </div>
 
 <p>
